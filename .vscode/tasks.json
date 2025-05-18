@@ -1,0 +1,40 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "command": ["spacetime"],
+            "args": ["start"],
+            "label": "Start SpacetimeDB",
+            "isBackground": true,
+        },
+        {
+            "type": "shell",
+            "command": [
+                "spacetime"
+            ],
+            "args": [
+                "build"
+            ],
+            "label": "Build VSS Server",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}/server"
+            }
+        },
+        {
+            "type": "shell",
+            "command": [
+                "spacetime"
+            ],
+            "args": [
+                "publish",
+                "vssserver"
+            ],
+            "label": "Deploy VSS Server",
+            "options": {
+                "cwd": "${workspaceFolder}/server"
+            },
+            "dependsOn": "Build VSS Server"
+        },
+    ]
+}
