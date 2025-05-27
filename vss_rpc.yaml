@@ -1,0 +1,4 @@
+Vehicle.Body.Windshield.Front.StartWiping:
+  arguments: 
+    - name: mode
+      type: 
